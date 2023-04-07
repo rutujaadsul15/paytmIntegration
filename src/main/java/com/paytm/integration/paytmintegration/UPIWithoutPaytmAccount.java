@@ -83,7 +83,7 @@ public class UPIWithoutPaytmAccount {
             paytmParams = new JSONObject();
 
             body = new JSONObject();
-            body.put("vpa", "7798809714@paytm");
+            body.put("vpa", "rutujaadsul15@okicici");
 
             head = new JSONObject();
             head.put("tokenType", "TXN_TOKEN");
@@ -127,7 +127,7 @@ public class UPIWithoutPaytmAccount {
             body.put("orderId", orderId);
             body.put("paymentMode", "UPI");
             body.put("channelCode", "collect");
-            body.put("payerAccount", "7798809714@paytm");
+            body.put("payerAccount", "rutujaadsul15@okicici");
 
             head = new JSONObject();
             head.put("txnToken", txnToken);
