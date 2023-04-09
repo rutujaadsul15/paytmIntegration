@@ -99,8 +99,6 @@ public class UPIWithoutPaytmAccount {
 
             /* for Production */
  url = new URL("https://securegw.paytm.in/theia/api/v1/vpa/validate?mid=JBEzpy42288253468787&orderId="+orderId);
-
-
                 connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
                 connection.setRequestProperty("Content-Type", "application/json");
@@ -217,7 +215,9 @@ public class UPIWithoutPaytmAccount {
             is = connection.getInputStream();
             responseReader = new BufferedReader(new InputStreamReader(is));
             if ((responseData = responseReader.readLine()) != null) {
+
                 System.out.append("\nTransaction Status Response: " + responseData);
+
             }
             // System.out.append("Request: " + post_data);
             responseReader.close();
