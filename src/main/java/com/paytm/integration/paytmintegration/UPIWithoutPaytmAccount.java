@@ -55,7 +55,7 @@ public class UPIWithoutPaytmAccount {
 //        URL url = new URL("https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction?mid=JBEzpy42288253468787&orderId=ORDERID_98928");
 
         /* for Production */
- URL url = new URL("https://securegw.paytm.in/theia/api/v1/initiateTransaction?mid=JBEzpy42288253468787&orderId="+ orderId);
+        URL url = new URL("https://securegw.paytm.in/theia/api/v1/initiateTransaction?mid=JBEzpy42288253468787&orderId=" + orderId);
 
         try {
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -77,7 +77,7 @@ public class UPIWithoutPaytmAccount {
             //read the txnToken
             JSONObject responseJSON = new JSONObject(responseData);
             JSONObject responseBody = new JSONObject(responseJSON.get("body").toString());
-            String txnToken=responseBody.get("txnToken").toString();
+            String txnToken = responseBody.get("txnToken").toString();
 
             // validate VPA api
             paytmParams = new JSONObject();
@@ -98,22 +98,22 @@ public class UPIWithoutPaytmAccount {
 //            url = new URL("https://securegw-stage.paytm.in/theia/api/v1/vpa/validate?mid=JBEzpy42288253468787&orderId=ORDERID_98928");
 
             /* for Production */
- url = new URL("https://securegw.paytm.in/theia/api/v1/vpa/validate?mid=JBEzpy42288253468787&orderId="+orderId);
-                connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("POST");
-                connection.setRequestProperty("Content-Type", "application/json");
-                connection.setDoOutput(true);
+            url = new URL("https://securegw.paytm.in/theia/api/v1/vpa/validate?mid=JBEzpy42288253468787&orderId=" + orderId);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setDoOutput(true);
 
-                requestWriter = new DataOutputStream(connection.getOutputStream());
-                requestWriter.writeBytes(post_data);
-                requestWriter.close();
-                responseData = "";
-                is = connection.getInputStream();
-                responseReader = new BufferedReader(new InputStreamReader(is));
-                if ((responseData = responseReader.readLine()) != null) {
-                    System.out.append("\nValidate VPA API Response: " + responseData);
-                }
-                responseReader.close();
+            requestWriter = new DataOutputStream(connection.getOutputStream());
+            requestWriter.writeBytes(post_data);
+            requestWriter.close();
+            responseData = "";
+            is = connection.getInputStream();
+            responseReader = new BufferedReader(new InputStreamReader(is));
+            if ((responseData = responseReader.readLine()) != null) {
+                System.out.append("\nValidate VPA API Response: " + responseData);
+            }
+            responseReader.close();
 
 
             // process transaction
@@ -140,29 +140,28 @@ public class UPIWithoutPaytmAccount {
 //            url = new URL("https://securegw-stage.paytm.in/theia/api/v1/processTransaction?mid=JBEzpy42288253468787&orderId=ORDERID_98928");
 
             /* for Production */
-  url = new URL("https://securegw.paytm.in/theia/api/v1/processTransaction?mid=JBEzpy42288253468787&orderId="+orderId);
+            url = new URL("https://securegw.paytm.in/theia/api/v1/processTransaction?mid=JBEzpy42288253468787&orderId=" + orderId);
 
 
-                connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("POST");
-                connection.setRequestProperty("Content-Type", "application/json");
-                connection.setDoOutput(true);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setDoOutput(true);
 
-                requestWriter = new DataOutputStream(connection.getOutputStream());
-                requestWriter.writeBytes(post_data);
-                requestWriter.close();
-                responseData = "";
-                is = connection.getInputStream();
-                responseReader = new BufferedReader(new InputStreamReader(is));
-                if ((responseData = responseReader.readLine()) != null) {
-                    System.out.append("\nProcess transaction Response: " + responseData);
-                }
-                responseReader.close();
-
+            requestWriter = new DataOutputStream(connection.getOutputStream());
+            requestWriter.writeBytes(post_data);
+            requestWriter.close();
+            responseData = "";
+            is = connection.getInputStream();
+            responseReader = new BufferedReader(new InputStreamReader(is));
+            if ((responseData = responseReader.readLine()) != null) {
+                System.out.append("\nProcess transaction Response: " + responseData);
+            }
+            responseReader.close();
 
 
             System.out.print("\nEnter any key-");
-            Scanner sc=new Scanner(System.in);
+            Scanner sc = new Scanner(System.in);
             sc.nextLine();
 
             // validate transaction status
@@ -176,7 +175,7 @@ public class UPIWithoutPaytmAccount {
             body.put("mid", "JBEzpy42288253468787");
 
             /* Enter your order id which needs to be check status for */
-            body.put("orderId",orderId
+            body.put("orderId", orderId
             );
 
 /**
@@ -184,7 +183,7 @@ public class UPIWithoutPaytmAccount {
  * You can get Checksum JAR from https://developer.paytm.com/docs/checksum/
  * Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys
  */
-             checksum = PaytmChecksum.generateSignature(body.toString(), "fO2vwcNCUf9PJTsS");
+            checksum = PaytmChecksum.generateSignature(body.toString(), "fO2vwcNCUf9PJTsS");
             /* head parameters */
             head = new JSONObject();
 
