@@ -32,11 +32,7 @@
 			<artifactId>json</artifactId>
 			<version>20180130</version>
 		</dependency>
-
-
-
-
-		<dependency>
+<dependency>
 			<groupId>com.paytm.pg</groupId>
 			<artifactId>paytm-checksum</artifactId>
 			<version>1.2.1</version>
