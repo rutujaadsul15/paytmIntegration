@@ -8,7 +8,7 @@ public class PaytmintegrationApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PaytmintegrationApplication.class, args);
-		System.out.println("Paytm Integration App started");
+		System.out.println("Paytm Integration prod started");
 	}
 
 }
